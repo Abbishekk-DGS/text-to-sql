@@ -1,0 +1,33 @@
+[project]
+name = "text-to-sql"
+version = "0.1.0"
+description = "Ask your database questions in plain English. Local LLM text-to-SQL with schema linking, a read-only safety guard, self-correction on errors, and an execution-accuracy benchmark."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Abbishekk DGS" }]
+requires-python = ">=3.11"
+dependencies = ["httpx>=0.27", "sqlglot>=25"]
+
+[project.urls]
+Homepage = "https://abbishekkdgs.tech"
+Repository = "https://github.com/Abbishekk-DGS/text-to-sql"
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[project.scripts]
+text-to-sql = "text_to_sql.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/text_to_sql"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["E501"]
