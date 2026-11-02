@@ -26,6 +26,30 @@ Karthik Singh (11) and Nila Das (10).
 (3 rows, 4.0s, 1 attempt(s))
 ```
 
+<!-- overview:start -->
+## Overview
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/overview-dark.svg">
+  <img alt="text-to-sql overview: how it works and its output. Key numbers: 88% execution accuracy, 14/16; 2 safety layers; 81% without listing enum values; 18 offline tests. Stack: Python · Ollama · sqlglot · SQLite · CSV import." src="docs/overview-light.svg" width="100%">
+</picture>
+
+## Interface
+
+It runs in the terminal, with one-off questions or an interactive prompt. There is no graphical app.
+
+| Command | What it does | Options |
+|---|---|---|
+| `text-to-sql demo` | Builds the sample store database | |
+| `text-to-sql ask "<question>"` | Answers one question | `--db`, `--csv`, `--explain` |
+| `text-to-sql repl` | Opens a `?` prompt for repeated questions; Ctrl-D quits | `--db`, `--csv`, `--explain` |
+| `text-to-sql bench` | Runs the accuracy benchmark | `--db` |
+
+`--model` (default `qwen2.5:3b`) and `--retries` (default 2) go before the command.
+
+Each answer shows the SQL, the result table, the row count, the time and the number of attempts. With `--explain` it also answers in plain English.
+<!-- overview:end -->
+
 ## Benchmark
 
 16 gold-labelled questions on the bundled store database (filters, joins, aggregation, ranking, dates, `NOT IN` subqueries), scored by **execution accuracy**: does the query return the same rows as the gold query?
