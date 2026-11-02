@@ -4,7 +4,7 @@ text-to-sql demo                                    # builds demo/shop.db
 text-to-sql ask "Which city has the most customers?" --db demo/shop.db
 text-to-sql ask "average salary by team" --csv people.csv teams.csv
 text-to-sql repl --db demo/shop.db
-text-to-sql bench --model qwen2.5:3b                # execution accuracy on the demo benchmark
+text-to-sql --model qwen2.5:3b bench                # execution accuracy on the demo benchmark
 """
 
 from __future__ import annotations

@@ -59,7 +59,7 @@ Each answer shows the SQL, the result table, the row count, the time and the num
 | `qwen2.5:3b` | **14/16 = 88%** |
 | `qwen2.5:3b`, without enum listing (ablation) | 13/16 = 81% |
 
-One of the passes needed a retry: the first query failed, the SQLite error went back to the model, and the second attempt was correct. Run it yourself with `text-to-sql bench --model <any-ollama-model>`.
+One of the passes needed a retry: the first query failed, the SQLite error went back to the model, and the second attempt was correct. Run it yourself with `text-to-sql --model <any-ollama-model> bench`.
 
 ## Safety: two layers
 
